@@ -15,7 +15,7 @@ ________________________________________________________________________________
 🌐 Basics: HTML, CSS<br>
 🧠 Concepts: OOP, DBMS, OS, CN
 _________________________________________________________________________________
- 📫 How to reach me mail me udaykiranbs9010<br>
+ 📫 How to reach me mail me udaykiran.creator@gmail.com<br>
 
  🚀 Open to internships, full-time roles, and collaborations in software development.
 <!---
