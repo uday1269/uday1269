@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+public class MarksManager {
+
+    static int[] marks = new int[5];
+    static boolean isEntered = false;
+
+    public static void enterMarks(Scanner sc) {
+        System.out.println(">> Enter marks:");
+        for (int i = 0; i < marks.length; i++) {
+            System.out.print("Student " + (i + 1) + ": ");
+            marks[i] = sc.nextInt();
+        }
+        isEntered = true;
+    }
+
+    public static void displayMarks() {
+        if (!isEntered) {
+            System.out.println("⚠ Please enter marks first!");
+            return;
+        }
+
+        System.out.println(">> Student Marks:");
+        int index = 1;
+        for (int m : marks) {
+            System.out.println("Student " + index++ + ": " + m);
+        }
+    }
+
+    public static void totalMarks() {
+        if (!isEntered) {
+            System.out.println("⚠ Please enter marks first!");
+            return;
+        }
+
+        int total = 0;
+        for (int m : marks) {
+            total += m;
+        }
+        System.out.println(">> Total Marks = " + total);
+    }
+
+    public static void averageMarks() {
+        if (!isEntered) {
+            System.out.println("Please enter marks first!");
+            return;
+        }
+
+        int sum = 0;
+        for (int m : marks) {
+            sum += m;
+        }
+        System.out.println(">> Average = " + (sum / (double) marks.length));
+    }
+
+    public static void highestMark() {
+        if (!isEntered) {
+            System.out.println("⚠ Please enter marks first!");
+            return;
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int m : marks) {
+            if (m > max) {
+                max = m;
+            }
+        }
+        System.out.println(">> Highest Mark = " + max);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        while (true) {
+            System.out.println("\n===== MARKS DASHBOARD =====");
+            System.out.println("1 ➜ Enter Marks");
+            System.out.println("2 ➜ Show Marks");
+            System.out.println("3 ➜ Total");
+            System.out.println("4 ➜ Average");
+            System.out.println("5 ➜ Highest");
+            System.out.println("0 ➜ Exit");
+            System.out.print("Choose: ");
+
+            choice = sc.nextInt();
+
+            if (choice == 0) {
+                System.out.println(" Program Closed");
+                break;
+            }
+
+            if (choice == 1) enterMarks(sc);
+            else if (choice == 2) displayMarks();
+            else if (choice == 3) totalMarks();
+            else if (choice == 4) averageMarks();
+            else if (choice == 5) highestMark();
+            else System.out.println(" Invalid Option!");
+        }
+
+        sc.close();
+    }
+}
